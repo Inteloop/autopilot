@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import {
+  ArrowRight,
   BadgeCheck,
   Bot,
   CalendarDays,
@@ -24,6 +25,8 @@ import { answerLocally, findVehicle, formatXof } from "@/lib/localBot";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { SplineScene } from "@/components/ui/splite";
+import { Spotlight } from "@/components/ui/spotlight";
 import type {
   AppointmentRequest,
   BotReply,
@@ -40,7 +43,7 @@ const starterMessages: ChatMessage[] = [
     id: "welcome",
     role: "assistant",
     content:
-      "Bonjour, je suis Auto Assist. Je peux vous aider pour un vehicule, un tarif SAV, un voyant moteur, les horaires ou une prise de rendez-vous.",
+      "Bonjour, je suis AutoPilot. Je peux vous aider pour un vehicule, un tarif SAV, un voyant moteur, les horaires ou une prise de rendez-vous.",
   },
 ];
 
@@ -78,7 +81,7 @@ function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
           alt={`${vehicle.brand} ${vehicle.model}`}
           className="h-full w-full object-cover"
         />
-        <div className="absolute left-3 top-3 rounded-md bg-card/95 px-3 py-2 text-sm font-bold text-foreground shadow-sm">
+        <div className="absolute left-3 top-3 rounded-md border border-white/10 bg-black/70 px-3 py-2 text-sm font-bold text-white shadow-sm backdrop-blur">
           {formatXof(vehicle.priceXof)}
         </div>
       </div>
@@ -92,7 +95,7 @@ function VehicleCard({ vehicle }: { vehicle: Vehicle }) {
               {vehicle.year} - {vehicle.transmission} - {vehicle.fuel}
             </p>
           </div>
-          <span className="rounded-md bg-emerald-100 px-2 py-1 text-xs font-semibold text-emerald-700">
+          <span className="rounded-md border border-emerald-400/20 bg-emerald-400/10 px-2 py-1 text-xs font-semibold text-emerald-300">
             {vehicle.availability}
           </span>
         </div>
@@ -176,7 +179,7 @@ function AppointmentPanel({
       <CardContent>
         {sent ? (
           <div className="space-y-3 rounded-md bg-card p-4 text-sm">
-            <p className="flex items-center gap-2 font-semibold text-emerald-700">
+            <p className="flex items-center gap-2 font-semibold text-emerald-300">
               <CheckCircle2 className="h-4 w-4" />
               Demande preparee
             </p>
@@ -265,11 +268,11 @@ function MessageBubble({ message }: { message: ChatMessage }) {
     >
       {!isUser ? (
         <div className="grid h-8 w-8 shrink-0 place-items-center rounded-md bg-primary text-xs font-bold text-primary-foreground">
-          AA
+          AP
         </div>
       ) : null}
       <div
-        className={`max-w-[84%] whitespace-pre-line rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm ${
+        className={`max-w-[88%] whitespace-pre-line rounded-2xl px-6 py-5 text-lg leading-8 shadow-sm ${
           isUser
             ? "rounded-br-md bg-primary text-primary-foreground"
             : "rounded-bl-md border border-border bg-card text-card-foreground"
@@ -287,6 +290,7 @@ function MessageBubble({ message }: { message: ChatMessage }) {
 }
 
 export default function App() {
+  const [showChat, setShowChat] = useState(false);
   const [apiKey, setApiKey] = useState(
     () => localStorage.getItem(storageKey) ?? "",
   );
@@ -390,10 +394,67 @@ export default function App() {
     void sendMessage();
   };
 
+  if (!showChat) {
+    return (
+      <main className="relative min-h-screen overflow-hidden bg-black text-white">
+        <Spotlight className="-top-40 left-0 md:-top-20 md:left-80" fill="white" />
+
+        <div className="absolute inset-0">
+          <SplineScene
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="h-full w-full"
+          />
+        </div>
+
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_68%_44%,transparent_0%,rgba(0,0,0,0.18)_28%,rgba(0,0,0,0.82)_74%)]" />
+
+        <section className="relative z-10 flex min-h-screen items-end px-5 py-6 sm:items-center sm:px-8 lg:px-14">
+          <div className="max-w-xl pb-6 sm:pb-0">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-md border border-white/12 bg-white/10 px-3 py-2 text-sm font-semibold text-white/85 backdrop-blur">
+              <Bot className="h-4 w-4" />
+              Auto Abidjan - démo assistant SAV et ventes
+              Github dev days 2026
+            </div>
+            <h1 className="text-5xl font-bold leading-none tracking-normal sm:text-6xl lg:text-7xl">
+              AutoPilot
+              <span className="block text-white/55">démo assistant SAV et ventes
+              Github dev days 2026</span>
+            </h1>
+            <p className="mt-6 max-w-md text-base leading-7 text-white/72">
+              Posez une question sur un vehicule, un tarif SAV, un voyant
+              moteur ou un rendez-vous. L'assistant repond avec la base Auto
+              Abidjan.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button
+                className="h-12 bg-white px-5 text-black hover:bg-white/90"
+                onClick={() => setShowChat(true)}
+              >
+                <MessageCircle className="h-5 w-5" />
+                Discuter avec AutoPilot
+                <ArrowRight className="h-5 w-5" />
+              </Button>
+              <Button
+                variant="outline"
+                className="h-12 border-white/20 bg-white/10 px-5 text-white hover:bg-white/15"
+                onClick={() =>
+                  window.open(getWhatsAppUrl(), "_blank", "noopener")
+                }
+              >
+                <Phone className="h-5 w-5" />
+                Conseiller WhatsApp
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-4 px-4 py-4 lg:px-6">
-        <header className="rounded-lg border border-border bg-card/95 p-4 shadow-soft">
+        <header className="rounded-lg border border-white/10 bg-card/88 p-4 shadow-soft backdrop-blur">
           <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_440px] lg:items-center">
             <div className="flex items-start gap-4">
               <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
@@ -402,12 +463,12 @@ export default function App() {
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <h1 className="text-2xl font-bold leading-tight">
-                    Auto Assist
+                    AutoPilot
                   </h1>
-                  <span className="rounded-md bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-700">
+                  <span className="rounded-md border border-emerald-400/20 bg-emerald-400/10 px-2 py-1 text-xs font-bold text-emerald-300">
                     SAV + ventes
                   </span>
-                  <span className="rounded-md bg-secondary/25 px-2 py-1 text-xs font-bold text-secondary-foreground">
+                  <span className="rounded-md border border-secondary/20 bg-secondary/15 px-2 py-1 text-xs font-bold text-secondary">
                     Abidjan Zone 4
                   </span>
                 </div>
@@ -415,6 +476,13 @@ export default function App() {
                   Assistant client pour disponibilites vehicules, tarifs
                   atelier, voyant moteur, horaires et rendez-vous concession.
                 </p>
+                <button
+                  className="mt-3 text-sm font-semibold text-primary hover:underline"
+                  onClick={() => setShowChat(false)}
+                  type="button"
+                >
+                  Retour au showroom 3D
+                </button>
               </div>
             </div>
 
@@ -422,7 +490,7 @@ export default function App() {
               {channelStats.map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-md border border-border bg-muted/40 p-3"
+                  className="rounded-md border border-white/10 bg-white/[0.04] p-3"
                 >
                   <item.icon className="mb-2 h-4 w-4 text-primary" />
                   <p className="text-lg font-bold leading-none">{item.value}</p>
@@ -436,25 +504,25 @@ export default function App() {
         </header>
 
         <div className="grid flex-1 gap-4 lg:grid-cols-[minmax(0,1fr)_400px]">
-          <section className="flex min-h-[680px] flex-col overflow-hidden rounded-lg border border-border bg-card shadow-soft lg:h-[calc(100vh-128px)]">
+          <section className="flex min-h-[680px] flex-col overflow-hidden rounded-lg border border-white/10 bg-card shadow-soft lg:h-[calc(100vh-128px)]">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3">
               <div className="flex items-center gap-3">
                 <div className="grid h-10 w-10 place-items-center rounded-md bg-primary/10 text-primary">
                   <MessageCircle className="h-5 w-5" />
                 </div>
                 <div>
-                  <h2 className="font-semibold">Conversation client</h2>
-                  <p className="text-sm text-muted-foreground">
+                  <h2 className="text-xl font-semibold">Conversation client</h2>
+                  <p className="text-base leading-6 text-muted-foreground">
                     Contexte limite aux 10 derniers messages
                   </p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-2 rounded-md bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+                <span className="inline-flex items-center gap-2 rounded-md border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold text-emerald-300">
                   <Clock3 className="h-4 w-4" />
                   Reponse rapide
                 </span>
-                <span className="inline-flex items-center gap-2 rounded-md bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                <span className="inline-flex items-center gap-2 rounded-md border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
                   <ShieldCheck className="h-4 w-4" />
                   Base controlee
                 </span>
@@ -468,10 +536,10 @@ export default function App() {
               {isTyping ? (
                 <div className="flex items-end justify-start gap-2">
                   <div className="grid h-8 w-8 place-items-center rounded-md bg-primary text-xs font-bold text-primary-foreground">
-                    AA
+                    AP
                   </div>
-                  <div className="rounded-2xl rounded-bl-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground shadow-sm">
-                    Auto Assist ecrit
+                  <div className="rounded-2xl rounded-bl-md border border-border bg-card px-6 py-5 text-lg leading-8 text-muted-foreground shadow-sm">
+                    AutoPilot ecrit
                     <span className="typing-dot">.</span>
                     <span className="typing-dot delay-150">.</span>
                     <span className="typing-dot delay-300">.</span>
@@ -486,7 +554,7 @@ export default function App() {
                 {quickPrompts.map((prompt) => (
                   <button
                     key={prompt}
-                    className="shrink-0 rounded-md border border-border bg-background px-3 py-2 text-xs font-semibold text-muted-foreground transition-colors hover:border-primary/35 hover:bg-primary/5 hover:text-primary"
+                    className="shrink-0 rounded-md border border-white/10 bg-white/[0.04] px-5 py-3 text-base font-semibold text-muted-foreground transition-colors hover:border-primary/35 hover:bg-primary/10 hover:text-primary"
                     onClick={() => void sendMessage(prompt)}
                     type="button"
                   >
@@ -496,6 +564,7 @@ export default function App() {
               </div>
               <form className="flex gap-2" onSubmit={submitChat}>
                 <Input
+                  className="h-16 px-5 text-lg"
                   placeholder="Posez votre question au concessionnaire..."
                   value={input}
                   onChange={(event) => setInput(event.target.value)}
@@ -508,7 +577,7 @@ export default function App() {
           </section>
 
           <aside className="space-y-4 lg:max-h-[calc(100vh-128px)] lg:overflow-y-auto lg:pr-1">
-            <Card className="border-primary/15">
+            <Card className="border-white/10 bg-card/95">
               <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2">
                   <Settings2 className="h-5 w-5 text-primary" />
@@ -516,7 +585,7 @@ export default function App() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="grid gap-3">
-                <div className="rounded-md bg-muted/50 p-3 text-sm">
+                <div className="rounded-md border border-white/10 bg-white/[0.04] p-3 text-sm">
                   <p className="flex items-center gap-2 font-semibold">
                     <BadgeCheck className="h-4 w-4 text-emerald-600" />
                     {apiStatus}
@@ -558,7 +627,7 @@ export default function App() {
                   <MessageCircle className="h-4 w-4" />
                   Parler a un conseiller
                 </Button>
-                <div className="grid gap-2 rounded-md border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
+                <div className="grid gap-2 rounded-md border border-secondary/25 bg-secondary/10 p-3 text-sm text-secondary">
                   <p className="flex items-center gap-2 font-semibold">
                     <Siren className="h-4 w-4" />
                     Signal SAV important
@@ -568,8 +637,8 @@ export default function App() {
                     diagnostic atelier ou un conseiller.
                   </p>
                 </div>
-                <div className="rounded-md border border-border bg-muted/50 p-3 text-sm leading-6 text-muted-foreground">
-                  <p className="flex items-center gap-2 font-semibold text-foreground">
+                <div className="rounded-md border border-white/10 bg-white/[0.04] p-3 text-sm leading-6 text-muted-foreground">
+                  <p className="flex items-center gap-2 font-semibold text-card-foreground">
                     <MapPin className="h-4 w-4 text-primary" />
                     {kb.dealership.address}
                   </p>

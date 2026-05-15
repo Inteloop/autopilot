@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: 210 24% 95%;
-  --foreground: 222 36% 12%;
-  --card: 0 0% 100%;
-  --card-foreground: 222 36% 12%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222 36% 12%;
-  --primary: 202 84% 32%;
+  --background: 220 30% 6%;
+  --foreground: 210 24% 96%;
+  --card: 222 28% 10%;
+  --card-foreground: 210 24% 96%;
+  --popover: 222 28% 10%;
+  --popover-foreground: 210 24% 96%;
+  --primary: 205 88% 52%;
   --primary-foreground: 0 0% 100%;
-  --secondary: 39 92% 55%;
-  --secondary-foreground: 222 36% 12%;
-  --muted: 210 18% 90%;
-  --muted-foreground: 215 16% 42%;
+  --secondary: 39 92% 58%;
+  --secondary-foreground: 220 30% 6%;
+  --muted: 220 18% 16%;
+  --muted-foreground: 215 16% 70%;
   --accent: 158 54% 42%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 70% 48%;
   --destructive-foreground: 0 0% 100%;
-  --border: 214 18% 84%;
-  --input: 214 18% 84%;
-  --ring: 202 84% 32%;
+  --border: 220 18% 22%;
+  --input: 220 18% 24%;
+  --ring: 205 88% 52%;
 }
 
 * {
@@ -37,7 +37,8 @@ body {
     sans-serif;
   letter-spacing: 0;
   background:
-    linear-gradient(180deg, hsl(210 24% 95%) 0%, hsl(200 22% 92%) 100%);
+    radial-gradient(circle at 65% 0%, rgba(45, 149, 255, 0.18), transparent 34%),
+    linear-gradient(180deg, hsl(220 30% 6%) 0%, hsl(222 34% 4%) 100%);
 }
 
 button,
@@ -47,19 +48,38 @@ input {
 
 .chat-surface {
   background:
-    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.72)),
+    linear-gradient(rgba(8, 12, 20, 0.74), rgba(8, 12, 20, 0.74)),
     repeating-linear-gradient(
       135deg,
-      hsl(210 18% 90%) 0,
-      hsl(210 18% 90%) 1px,
+      rgba(255, 255, 255, 0.07) 0,
+      rgba(255, 255, 255, 0.07) 1px,
       transparent 1px,
       transparent 18px
     );
 }
 
+.loader {
+  width: 34px;
+  height: 34px;
+  border: 3px solid rgba(255, 255, 255, 0.28);
+  border-bottom-color: hsl(var(--secondary));
+  border-radius: 50%;
+  display: inline-block;
+  animation: loaderRotation 1s linear infinite;
+}
+
 @media (max-width: 640px) {
   .chat-surface {
     min-height: 420px;
+  }
+}
+
+@keyframes loaderRotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 

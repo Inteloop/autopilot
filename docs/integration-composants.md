@@ -25,6 +25,22 @@ Le chemin `/components/ui` mentionne dans le brief correspond ici a l'alias shad
 - `src/components/ui/button.tsx`
 - `src/components/ui/input.tsx`
 - `src/components/ui/card.tsx`
+- `src/components/ui/splite.tsx`
+- `src/components/ui/spotlight.tsx`
+- `src/components/ui/cursor-spotlight.tsx`
+- `src/components/ui/demo.tsx`
+
+## Integration Spline
+
+Le composant fourni a ete integre dans `src/components/ui/splite.tsx`, en conservant le nom demande. Le projet utilise l'alias shadcn `@/components/ui`, donc l'import reste compatible avec `@/components/ui/splite`.
+
+Dependances ajoutees avec Bun :
+
+- `@splinetool/runtime`
+- `@splinetool/react-spline`
+- `framer-motion`
+
+La demo `SplineSceneBasic` est affichee dans le panneau lateral de l'application. Aucun provider React supplementaire n'est requis : `SplineScene` utilise `React.lazy` et `Suspense`, et `CursorSpotlight` gere son etat localement.
 
 ## Props et etat
 
