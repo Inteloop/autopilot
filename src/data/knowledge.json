@@ -1,0 +1,269 @@
+{
+  "dealership": {
+    "name": "Auto Abidjan",
+    "address": "Boulevard de Marseille, Zone 4, Marcory",
+    "city": "Abidjan",
+    "phone": "+225 27 21 35 44 80",
+    "whatsapp": "+2250700000000",
+    "email": "contact@autoabidjan.ci",
+    "openingHours": [
+      "Lundi au vendredi : 08h00 - 18h00",
+      "Samedi : 09h00 - 14h00",
+      "Dimanche : ferme",
+      "Urgences SAV par WhatsApp : 24/7"
+    ],
+    "services": [
+      "Vente de vehicules neufs et occasions recentes",
+      "Entretien courant",
+      "Diagnostic electronique",
+      "Carrosserie et peinture",
+      "Financement et leasing",
+      "Reprise de vehicule"
+    ]
+  },
+  "vehicles": [
+    {
+      "id": "toyota-rav4-2023",
+      "brand": "Toyota",
+      "model": "RAV4 Hybrid",
+      "year": 2023,
+      "priceXof": 28500000,
+      "availability": "Disponible",
+      "mileageKm": 18000,
+      "fuel": "Hybride essence",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=900&q=80",
+      "highlight": "SUV familial economique, ideal pour Abidjan et trajets interieurs."
+    },
+    {
+      "id": "hyundai-tucson-2024",
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "year": 2024,
+      "priceXof": 24500000,
+      "availability": "Disponible",
+      "mileageKm": 6500,
+      "fuel": "Essence",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80",
+      "highlight": "SUV recent avec garantie concessionnaire 24 mois."
+    },
+    {
+      "id": "kia-sportage-2022",
+      "brand": "Kia",
+      "model": "Sportage",
+      "year": 2022,
+      "priceXof": 19800000,
+      "availability": "Disponible",
+      "mileageKm": 32000,
+      "fuel": "Diesel",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80",
+      "highlight": "Bon compromis budget, confort et robustesse."
+    },
+    {
+      "id": "nissan-qashqai-2021",
+      "brand": "Nissan",
+      "model": "Qashqai",
+      "year": 2021,
+      "priceXof": 17500000,
+      "availability": "Sur commande",
+      "mileageKm": 41000,
+      "fuel": "Essence",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1517672651691-24622a91b550?auto=format&fit=crop&w=900&q=80",
+      "highlight": "Livraison estimee sous 12 a 18 jours apres acompte."
+    },
+    {
+      "id": "toyota-hilux-2023",
+      "brand": "Toyota",
+      "model": "Hilux Double Cabine",
+      "year": 2023,
+      "priceXof": 31500000,
+      "availability": "Disponible",
+      "mileageKm": 22000,
+      "fuel": "Diesel",
+      "transmission": "Manuelle",
+      "imageUrl": "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80",
+      "highlight": "Pickup solide pour chantier, flotte et trajets hors route."
+    },
+    {
+      "id": "suzuki-swift-2022",
+      "brand": "Suzuki",
+      "model": "Swift",
+      "year": 2022,
+      "priceXof": 9200000,
+      "availability": "Disponible",
+      "mileageKm": 28000,
+      "fuel": "Essence",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1550355291-bbee04a92027?auto=format&fit=crop&w=900&q=80",
+      "highlight": "Citadine agile et sobre pour les trajets quotidiens."
+    },
+    {
+      "id": "mercedes-c200-2021",
+      "brand": "Mercedes-Benz",
+      "model": "Classe C 200",
+      "year": 2021,
+      "priceXof": 33500000,
+      "availability": "Reserve",
+      "mileageKm": 36000,
+      "fuel": "Essence",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=900&q=80",
+      "highlight": "Berline premium en attente de confirmation client."
+    },
+    {
+      "id": "peugeot-3008-2023",
+      "brand": "Peugeot",
+      "model": "3008",
+      "year": 2023,
+      "priceXof": 23800000,
+      "availability": "Disponible",
+      "mileageKm": 14500,
+      "fuel": "Essence",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80",
+      "highlight": "Interieur moderne, faible kilometrage, entretien a jour."
+    },
+    {
+      "id": "mitsubishi-pajero-2020",
+      "brand": "Mitsubishi",
+      "model": "Pajero Sport",
+      "year": 2020,
+      "priceXof": 21500000,
+      "availability": "Disponible",
+      "mileageKm": 58000,
+      "fuel": "Diesel",
+      "transmission": "Automatique",
+      "imageUrl": "https://images.unsplash.com/photo-1533106418989-88406c7cc8ca?auto=format&fit=crop&w=900&q=80",
+      "highlight": "4x4 confortable pour familles et routes difficiles."
+    },
+    {
+      "id": "renault-duster-2024",
+      "brand": "Renault",
+      "model": "Duster",
+      "year": 2024,
+      "priceXof": 15800000,
+      "availability": "Sur commande",
+      "mileageKm": 0,
+      "fuel": "Essence",
+      "transmission": "Manuelle",
+      "imageUrl": "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=900&q=80",
+      "highlight": "Neuf, bon rapport prix/usage, livraison sous 21 jours."
+    }
+  ],
+  "serviceTariffs": [
+    {
+      "id": "vidange-standard",
+      "label": "Vidange standard essence ou diesel",
+      "priceFromXof": 45000,
+      "duration": "1h a 1h30",
+      "details": "Huile, filtre a huile et controle de 12 points inclus."
+    },
+    {
+      "id": "vidange-premium",
+      "label": "Vidange premium SUV ou berline recente",
+      "priceFromXof": 75000,
+      "duration": "1h30",
+      "details": "Huile synthese, filtre, controle niveaux, pression pneus et diagnostic rapide."
+    },
+    {
+      "id": "diagnostic-electronique",
+      "label": "Diagnostic electronique",
+      "priceFromXof": 30000,
+      "duration": "45 min",
+      "details": "Lecture valise, interpretation des codes defaut et conseil atelier."
+    },
+    {
+      "id": "plaquettes-frein",
+      "label": "Remplacement plaquettes de frein avant",
+      "priceFromXof": 85000,
+      "duration": "2h",
+      "details": "Main d'oeuvre incluse, tarif variable selon modele."
+    },
+    {
+      "id": "distribution",
+      "label": "Kit distribution",
+      "priceFromXof": 260000,
+      "duration": "1 journee",
+      "details": "Kit complet et main d'oeuvre, devis confirme apres identification du vehicule."
+    },
+    {
+      "id": "climatisation",
+      "label": "Recharge climatisation",
+      "priceFromXof": 40000,
+      "duration": "1h",
+      "details": "Controle fuite simple et recharge gaz."
+    },
+    {
+      "id": "batterie",
+      "label": "Test et remplacement batterie",
+      "priceFromXof": 65000,
+      "duration": "30 a 45 min",
+      "details": "Test gratuit si remplacement effectue chez Auto Abidjan."
+    }
+  ],
+  "faq": [
+    {
+      "question": "Comment prendre rendez-vous pour un entretien ?",
+      "answer": "Vous pouvez prendre rendez-vous via le formulaire Auto Assist, WhatsApp ou par telephone. Indiquez le modele, le kilometrage et le service souhaite."
+    },
+    {
+      "question": "Le voyant moteur est allume, est-ce grave ?",
+      "answer": "Il faut eviter les longs trajets et demander un diagnostic electronique. Si le voyant clignote ou si le moteur broute, arretez le vehicule et contactez un conseiller."
+    },
+    {
+      "question": "Combien coute une vidange ?",
+      "answer": "La vidange standard commence a 45 000 FCFA. Pour SUV ou huile premium, le tarif commence a 75 000 FCFA."
+    },
+    {
+      "question": "Avez-vous des voitures automatiques ?",
+      "answer": "Oui, plusieurs modeles disponibles sont en boite automatique, notamment RAV4, Tucson, Sportage, Qashqai, Classe C, 3008 et Pajero Sport."
+    },
+    {
+      "question": "Proposez-vous un financement ?",
+      "answer": "Oui, financement et leasing sont proposes apres etude du dossier avec piece d'identite, justificatif de revenus et apport initial."
+    },
+    {
+      "question": "Peut-on faire reprendre son ancien vehicule ?",
+      "answer": "Oui, Auto Abidjan propose la reprise apres inspection technique, verification des documents et estimation commerciale."
+    },
+    {
+      "question": "Les vehicules sont-ils garantis ?",
+      "answer": "Les occasions recentes ont une garantie concessionnaire de 3 a 24 mois selon le vehicule. Les details sont confirmes avant achat."
+    },
+    {
+      "question": "Ou etes-vous situes ?",
+      "answer": "Auto Abidjan est situe Boulevard de Marseille, Zone 4, Marcory, Abidjan."
+    },
+    {
+      "question": "Quels sont vos horaires ?",
+      "answer": "Nous sommes ouverts du lundi au vendredi de 08h00 a 18h00, le samedi de 09h00 a 14h00, ferme le dimanche."
+    },
+    {
+      "question": "Puis-je reserver un vehicule ?",
+      "answer": "Oui, une reservation est possible avec un acompte et une confirmation ecrite du conseiller commercial."
+    },
+    {
+      "question": "Faites-vous le diagnostic avant achat ?",
+      "answer": "Oui, l'atelier peut realiser un diagnostic electronique et un controle visuel avant achat."
+    },
+    {
+      "question": "Combien de temps dure une vidange ?",
+      "answer": "Une vidange dure generalement entre 1h et 1h30 selon l'affluence et le type de vehicule."
+    },
+    {
+      "question": "Faites-vous la carrosserie ?",
+      "answer": "Oui, Auto Abidjan propose carrosserie, peinture et devis apres inspection du vehicule."
+    },
+    {
+      "question": "Avez-vous un service WhatsApp ?",
+      "answer": "Oui, vous pouvez contacter un conseiller sur WhatsApp au +225 07 00 00 00 00."
+    },
+    {
+      "question": "Quels documents faut-il pour acheter ?",
+      "answer": "Piece d'identite, justificatif de domicile et moyens de paiement. Pour financement, un justificatif de revenus est demande."
+    }
+  ]
+}
